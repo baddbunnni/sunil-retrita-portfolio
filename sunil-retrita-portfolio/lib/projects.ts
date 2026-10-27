@@ -9,43 +9,64 @@ export type Project = {
   art: string;
   highlights: string[];
   confirmation: string[];
+  externalUrl?: string;
+  externalLabel?: string;
+  image?: string;
+  logo?: string;
+  imageAlt?: string;
+  attribution?: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "proof-of-delivery-app",
-    title: "Proof of Delivery App",
-    category: "Software development",
-    summary: "An iOS proof-of-delivery app developed in a business setting as part of the user's Business Solutions Technician role.",
-    detail: "A practical software project focused on digitising a business workflow. The exact feature set, architecture, rollout status and measurable impact should be confirmed before this page is published.",
-    status: "Details to confirm",
-    stack: ["SwiftUI", "iOS", "APIs — confirm"],
+    title: "Proof of Delivery — iOS App",
+    category: "iOS · Business systems",
+    summary: "A modernised iOS proof-of-delivery experience, rebuilt in SwiftUI to improve the user experience and extend an established operational workflow.",
+    detail: "Rebuilt an existing proof-of-delivery app originally created by the operations director, using SwiftUI and a refreshed interface. The workflow allows users to scan a QR code containing shipment and order references, capture the recipient’s name and signature, and submit the delivery record to the company portal through existing APIs. Delivery records include geolocation captured at the point of confirmation. The portal and APIs were pre-existing components; this work focused on the iOS client, interface and additional app functionality.",
+    status: "Developed in a business setting",
+    stack: ["SwiftUI", "iOS", "QR scanning", "Signature capture", "Geolocation", "Existing APIs"],
     art: "bg-gradient-to-br from-indigo-950 via-slate-900 to-blue-950",
-    highlights: ["iOS app development using SwiftUI", "Built in a real business context", "Further technical details to confirm"],
-    confirmation: ["Exact features and user workflow", "Whether it is live and who uses it", "API/backend technologies and your precise contribution", "Any measured time saved or error reduction"]
+    highlights: ["Rebuilt an existing app using modern SwiftUI code and UI patterns", "QR-based shipment and order identification", "Recipient name and signature capture", "Delivery submission with geolocation through existing company APIs"],
+    confirmation: ["Confirm whether any company names or screenshots may be made public", "Confirm exact wording for the original creator attribution"],
+    image: "/pod-concept.jpg",
+    imageAlt: "Illustrative iPad proof-of-delivery interface concept",
+    logo: "/fp-group-logo.png",
+    attribution: "Original application concept and first version by the operations director. Rebuild and UX enhancements by Sunil Retrita.",
+    externalUrl: "https://vendedinventorysolutions.com/",
+    externalLabel: "Vended Inventory Solutions"
   },
   {
     slug: "toke-taxi-app",
-    title: "Toke — Taxi Booking App",
-    category: "Product development",
-    summary: "A taxi-booking app concept for Las Palmas, with work spanning iOS, backend services and payments.",
-    detail: "A product concept intended to connect passengers with licensed taxi drivers and support pre-booking. The planned technology has included SwiftUI, Supabase, Stripe and Vercel; implementation status and shipped functionality must be confirmed.",
-    status: "Project in development — confirm current status",
-    stack: ["SwiftUI", "Supabase", "Stripe", "Vercel"],
+    title: "Toke — Taxi Booking Platform",
+    category: "Product concept · Mobility",
+    summary: "A taxi-booking platform concept for licensed taxis in Las Palmas, designed with the potential to expand across Gran Canaria.",
+    detail: "Toke is a product concept exploring a ride-booking experience for licensed taxi services in Las Palmas, with a longer-term ambition to serve the wider island. The proposed experience brings passenger booking and driver workflows together, while a fare-calculation concept accounts for meter-relevant inputs such as journey distance, elapsed time and applicable surcharges. The product remains in development; this portfolio describes the intended product direction rather than claiming a fully launched service or implemented payment processing.",
+    status: "Concept in development",
+    stack: ["SwiftUI", "Supabase", "Vercel", "Fare calculation"],
     art: "bg-gradient-to-br from-blue-950 via-slate-900 to-violet-950",
-    highlights: ["Taxi-booking product concept for Las Palmas", "Pre-booking and licensed-driver workflow are part of the intended model", "Payments and backend implementation details to confirm"],
-    confirmation: ["Current development status and working demo", "Which flows are implemented versus planned", "Payment integration status", "Your exact contribution and any collaborators"]
+    image: "/toke-concept.jpg",
+    imageAlt: "Illustrative taxi booking app concept visual",
+    logo: "/toke-logo.png",
+    highlights: ["Designed around licensed taxi services in Las Palmas", "Passenger booking and driver workflows are part of the product concept", "Fare-calculation logic considers time, distance and applicable surcharges", "Website available; the app is not currently showcased as a production release"],
+    confirmation: ["Confirm which product flows are implemented versus planned", "Confirm any technologies you want to disclose publicly"],
+    externalUrl: "https://tokelaspalmas.com/es",
+    externalLabel: "Visit Toke website"
   },
   {
-    slug: "ai-business-challenge",
-    title: "AI Business Challenge",
-    category: "AI & innovation",
-    summary: "A university hackathon project exploring an AI-based solution to a real-world business problem.",
-    detail: "A university hackathon project presented using a Canva presentation and a Figma website. The problem statement, solution design, team roles, technical implementation and outcomes should be added from the final submission.",
-    status: "Details to confirm",
-    stack: ["AI — approach to confirm", "Figma", "Canva"],
+    slug: "futurebite-hackathon",
+    title: "FutureBite Hackathon",
+    category: "Hackathon · Career discovery",
+    summary: "A digital destination concept designed to inspire young people to explore careers in food engineering and manufacturing.",
+    detail: "Created as part of a university hackathon challenge connected with Mondelēz and the Food and Drink Federation, FutureBite explored how to make food engineering careers more visible, approachable and engaging. The team developed a Career Navigator concept featuring a career-discovery quiz, clearer career pathways and ideas such as taster sessions, day-in-the-life content, testimonials and mentoring. The prototype website and presentation communicated the experience; this was a digital product and content concept, not an AI model implementation.",
+    status: "Hackathon project · Third place",
+    stack: ["Figma", "Canva", "Career discovery", "UX research", "Prototype design"],
     art: "bg-gradient-to-br from-violet-950 via-slate-900 to-fuchsia-950",
-    highlights: ["Participated in a university hackathon", "Presentation and website prototype were created", "No award or technical outcome is claimed here"],
-    confirmation: ["Project name and problem statement", "What the proposed AI solution actually does", "Your contribution and team responsibilities", "Whether any code/model was built", "Any feedback, result or recognition"]
+    image: "/futurebite-leaflet.jpg",
+    imageAlt: "FutureBite and Mondelēz hackathon promotional leaflet",
+    highlights: ["Career Navigator concept for food engineering and manufacturing", "Career discovery quiz and jargon-free career pathway content", "Explored taster sessions, testimonials, mentoring and day-in-the-life content", "Team placed third in the hackathon"],
+    confirmation: ["Check with teammates before publishing any shared or restricted materials"],
+    externalUrl: "https://hackathonmondelez.vercel.app/",
+    externalLabel: "Explore FutureBite prototype"
   }
 ];
