@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, CircleHelp, ExternalLink, Play } from "lucide-react";
@@ -42,6 +43,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
         <div className="mt-7 grid gap-6 md:grid-cols-[1.25fr_.75fr] md:gap-8">
           <div className="panel p-6 sm:p-7">
+            {project.photo && <figure className="mb-6"><Image src={project.photo.src} alt={project.photo.alt} width={project.photo.width} height={project.photo.height} sizes="(max-width: 768px) 100vw, 600px" className="h-auto w-full rounded-xl border border-white/10" /><figcaption className="mt-2 text-xs text-slate-500">{project.photo.caption}</figcaption></figure>}
             <h2 className="text-xl font-semibold">Overview</h2>
             <p className="mt-3 text-sm leading-7 text-slate-400">{project.detail}</p>
             {project.attribution && <p className="mt-5 rounded-xl border border-white/10 bg-white/[.025] p-4 text-xs leading-6 text-slate-400">{project.attribution}</p>}

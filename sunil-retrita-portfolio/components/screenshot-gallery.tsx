@@ -52,7 +52,7 @@ export function ScreenshotGallery({ title, images, variant }: { title: string; i
     <section className="panel mt-7 p-5 sm:p-7" aria-label={title}>
       <h2 className="text-xl font-semibold">{title}</h2>
       <p className="mt-1 text-xs text-slate-500">Select a screenshot to enlarge it.</p>
-      <div className="mt-5 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">{images.map((image, i) => tile(image, i, "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"))}</div>
+      <div className={`mt-5 grid gap-6 sm:grid-cols-2 ${images.length === 4 ? "" : "lg:grid-cols-3"}`}>{images.map((image, i) => tile(image, i, "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"))}</div>
 
       {open !== null && (
         <div role="dialog" aria-modal="true" aria-label={images[open].caption} className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#04060b]/95 p-4 backdrop-blur-sm sm:p-8" onClick={close}>

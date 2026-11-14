@@ -19,6 +19,7 @@ export type Project = {
   imageAlt?: string;
   attribution?: string;
   gallery?: { title: string; variant: "tablet" | "browser"; images: GalleryImage[] };
+  photo?: GalleryImage;
   sections?: { title: string; body: string }[];
   results?: { title: string; columns: string[]; rows: { cells: string[]; highlight?: boolean }[]; note?: string };
   metrics?: { label: string; value: string }[];
@@ -51,6 +52,39 @@ export const projects: Project[] = [
     attribution: "Original application concept and first version by the operations director. Rebuild and UX enhancements by Sunil Retrita.",
     externalUrl: "https://vendedinventorysolutions.com/",
     externalLabel: "Vended Inventory Solutions"
+  },
+  {
+    slug: "bcu-postgraduate-society-website",
+    title: "BCU Postgraduate Society — Website",
+    category: "Web platform · Student community",
+    summary: "The digital home of Birmingham City University's Postgraduate Society, with opportunities, events and volunteer roles, designed and built while serving as society president.",
+    detail: "As president of the BCU Postgraduate Society, I designed and built the society’s website to give postgraduate students one place to find opportunities, events and ways to get involved. It is built with Next.js, TypeScript and Tailwind CSS and hosted free on Vercel, with no database, CMS or paid services. All content lives in simple data files, so committee volunteers without coding experience can add opportunities, events and roles by following a written content guide, which keeps the site maintainable after committee handovers.",
+    status: "Live · Built as society president",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel", "Static generation", "SEO"],
+    art: "bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950",
+    image: "/bcu-pg-home.jpg",
+    imageAlt: "BCU Postgraduate Society website homepage with a list of opportunities closing soon",
+    highlights: [
+      "Opportunities board with search, type and working-style filters, sorted by soonest deadline",
+      "“Closing soon”, “New” and expired states calculated automatically from dates and refreshed hourly, so nobody has to update them by hand",
+      "Build-time validation of dates, links and IDs, so a content mistake stops a preview build instead of breaking the live site",
+      "Volunteer and committee roles with applications sent to the society inbox, without needing a server or form service",
+      "Events with Add to Google Calendar links and structured event data for search engines",
+      "Written content guide and architecture notes so future committees can maintain the site"
+    ],
+    gallery: {
+      title: "Screenshots",
+      variant: "browser",
+      images: [
+        { src: "/bcu-pg-home.jpg", alt: "Homepage with the society's mission, a closing-soon board and key statistics", caption: "Homepage with a live board of opportunities closing soon", width: 1440, height: 900 },
+        { src: "/bcu-pg-opportunities.jpg", alt: "Opportunities page with search, filters and graduate job cards sorted by deadline", caption: "Opportunities board with search and filters, soonest deadline first", width: 1440, height: 900 },
+        { src: "/bcu-pg-opportunity.jpg", alt: "Opportunity page for a data science graduate scheme showing deadline, location, pay and relevant courses", caption: "Opportunity page with deadline, pay, relevant courses and apply link", width: 1440, height: 900 },
+        { src: "/bcu-pg-get-involved.jpg", alt: "Get involved page explaining the benefits of volunteering with the society", caption: "Get involved: volunteer roles that build CV experience", width: 1440, height: 900 }
+      ]
+    },
+    confirmation: [],
+    externalUrl: "https://bcupgsociety.vercel.app/",
+    externalLabel: "Visit the society website"
   },
   {
     slug: "gbp-usd-forecasting",
@@ -125,15 +159,16 @@ export const projects: Project[] = [
     imageAlt: "FutureBite and Mondelēz hackathon promotional leaflet",
     highlights: ["Career Navigator concept for food engineering and manufacturing", "Career discovery quiz and jargon-free career pathway content", "Explored taster sessions, testimonials, mentoring and day-in-the-life content", "Team placed third in the hackathon"],
     confirmation: ["Check with teammates before publishing any shared or restricted materials"],
+    photo: { src: "/futurebite-team9-third-place.jpg", alt: "Team 9 with the hackathon judges after being awarded third place", caption: "Team 9 receiving third place at the FutureBite hackathon awards", width: 626, height: 412 },
     gallery: {
       title: "Website design",
       variant: "browser",
       images: [
         { src: "/futurebite-design-1.jpg", alt: "FutureBite homepage hero: Your future could make a big impact, with food scientists in a lab", caption: "Homepage hero introducing careers in food manufacturing", width: 2000, height: 966 },
-        { src: "/futurebite-design-2.jpg", alt: "Learning hub cards: Food manufacturing explained, 5 skills you're already building, Introduction event", caption: "Learning hub content about the industry", width: 2000, height: 1110 },
-        { src: "/futurebite-design-3.jpg", alt: "Employee stories from an automation engineer and a maintenance apprentice", caption: "Employee stories showing different career paths", width: 2000, height: 1082 },
-        { src: "/futurebite-design-4.jpg", alt: "Opportunities search with interest and location filters and example roles", caption: "Opportunities search for apprenticeships, graduate roles and placements", width: 2000, height: 1025 },
-        { src: "/futurebite-design-5.jpg", alt: "Career routes: apprenticeships, university and graduate routes, college and technical routes", caption: "Routes into the industry for different starting points", width: 2000, height: 1068 }
+        { src: "/futurebite-design-4.jpg", alt: "Learning hub cards: Food manufacturing explained, 5 skills you're already building, Introduction event", caption: "Learning hub content about the industry", width: 2000, height: 1025 },
+        { src: "/futurebite-design-2.jpg", alt: "Employee stories from an automation engineer and a maintenance apprentice", caption: "Employee stories showing different career paths", width: 2000, height: 1110 },
+        { src: "/futurebite-design-5.jpg", alt: "Opportunities search with interest and location filters and example roles", caption: "Opportunities search for apprenticeships, graduate roles and placements", width: 2000, height: 1068 },
+        { src: "/futurebite-design-3.jpg", alt: "Career routes: apprenticeships, university and graduate routes, college and technical routes", caption: "Routes into the industry for different starting points", width: 2000, height: 1082 }
       ]
     },
     externalUrl: "https://hackathonmondelez.vercel.app/",
