@@ -1,0 +1,3 @@
+# Local backups, too large for GitHub
+*.zip
+.DS_Store
