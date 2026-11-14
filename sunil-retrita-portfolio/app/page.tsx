@@ -45,7 +45,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/projects" className="btn-primary">Explore my work <ArrowRight size={16} /></Link>
-              <a href="https://www.linkedin.com/in/sunil-mr-mba-cima/" target="_blank" rel="noreferrer" className="btn-secondary">Let’s connect <Linkedin size={16} /></a>
+              <a href="https://www.linkedin.com/in/sunilretrita/" target="_blank" rel="noreferrer" className="btn-secondary">Let’s connect <Linkedin size={16} /></a>
             </div>
             <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-slate-400">
               {disciplines.map(({icon: Icon, title}) => <span key={title} className="inline-flex items-center gap-2"><Icon size={15} className="text-indigo-300" /> {title}</span>)}
@@ -145,7 +145,7 @@ export default function Home() {
             <div className="glow right-[-4%] top-[-40%] h-64 w-64 bg-violet-500 opacity-20"/>
             <div className="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
               <div><p className="section-label">Contact</p><h2 className="mt-4 max-w-2xl text-3xl font-bold tracking-tight sm:text-4xl">Interested in building something useful?</h2><p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">I’m interested in connecting with people working across software, AI, data, finance and FinTech.</p></div>
-              <div className="flex flex-wrap gap-3"><a className="btn-primary" href="mailto:sunilretrita@gmail.com">Email me <Mail size={16}/></a><a className="btn-secondary" href="https://www.linkedin.com/in/sunil-mr-mba-cima/" target="_blank" rel="noreferrer">LinkedIn <Linkedin size={16}/></a></div>
+              <div className="flex flex-wrap gap-3"><a className="btn-primary" href="mailto:sunilretrita@gmail.com">Email me <Mail size={16}/></a><a className="btn-secondary" href="https://www.linkedin.com/in/sunilretrita/" target="_blank" rel="noreferrer">LinkedIn <Linkedin size={16}/></a></div>
             </div>
           </div>
         </div>
