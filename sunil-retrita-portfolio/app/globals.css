@@ -82,3 +82,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @keyframes intro-particle-drift { 0% { opacity: 0; transform: translate3d(0,14px,0) scale(.6); } 35% { opacity: .85; } 100% { opacity: 0; transform: translate3d(10px,-32px,0) scale(1.25); } }
 @keyframes intro-fade-out { to { opacity: 0; visibility: hidden; pointer-events: none; } }
 @media (prefers-reduced-motion: reduce) { .intro-overlay, .intro-content, .intro-eyebrow, .intro-name, .intro-light-sweep, .intro-tagline, .intro-particle { animation: none !important; } }
+
+/* GBP/USD live demo */
+.demo-select { border: 1px solid var(--border); background: #0b1020; color: #e4eaf5; border-radius: 10px; padding: 11px 12px; font-size: .85rem; }
+.demo-select:disabled { opacity: .6; }
+.demo-table-wrap { overflow-x: auto; border: 1px solid rgba(255,255,255,.1); border-radius: 12px; }
+.demo-table { width: 100%; border-collapse: collapse; font-size: .78rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.demo-table th, .demo-table td { padding: 8px 12px; border-bottom: 1px solid rgba(255,255,255,.06); text-align: right; }
+.demo-table thead th { background: rgba(255,255,255,.03); color: #94a3b8; font-weight: 500; }
+.demo-table tbody th { color: #e2e8f0; font-weight: 500; text-align: left; }
+.demo-table td { color: #cbd5e1; }
+.demo-table tbody tr:last-child th, .demo-table tbody tr:last-child td { border-bottom: 0; }

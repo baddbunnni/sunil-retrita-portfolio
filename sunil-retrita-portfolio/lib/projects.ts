@@ -13,6 +13,7 @@ export type Project = {
   confirmation: string[];
   externalUrl?: string;
   externalLabel?: string;
+  demoUrl?: string;
   image?: string;
   logo?: string;
   imageAlt?: string;
@@ -60,6 +61,7 @@ export const projects: Project[] = [
     status: "MSc project · Extended analysis",
     stack: ["Python", "scikit-learn", "pandas", "Time-series evaluation", "K-Means", "Matplotlib"],
     art: "bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900",
+    demoUrl: "/demo/gbp-usd",
     image: "/gbp-usd-chart.png",
     imageAlt: "Line chart of the GBP/USD daily exchange rate from 2010 to 2025, with the October 2022 to 2025 test period highlighted",
     highlights: [

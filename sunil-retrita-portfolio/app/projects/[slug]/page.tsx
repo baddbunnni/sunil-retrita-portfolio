@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, CircleHelp, ExternalLink } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CircleHelp, ExternalLink, Play } from "lucide-react";
 import { projects } from "@/lib/projects";
 import { ScreenshotGallery } from "@/components/screenshot-gallery";
 
@@ -32,6 +32,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-300">{project.summary}</p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
               <p className="inline-flex items-center gap-2 rounded-full border border-amber-200/20 bg-amber-100/[.05] px-4 py-2 text-sm text-amber-100"><CircleHelp size={15} />{project.status}</p>
+              {project.demoUrl && <Link href={project.demoUrl} className="btn-primary">Try the live demo <Play size={15} /></Link>}
               {project.externalUrl && <a href={project.externalUrl} target="_blank" rel="noreferrer" className="btn-secondary inline-flex items-center justify-center gap-2">{project.externalLabel ?? "View project"}<ExternalLink size={15} /></a>}
             </div>
           </div>
