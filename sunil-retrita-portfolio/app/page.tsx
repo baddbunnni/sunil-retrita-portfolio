@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, Leaf, Trophy, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
 import { IntroOverlay } from "@/components/intro-overlay";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/projects";
@@ -23,6 +23,11 @@ const cimaSubjects = [
   { code: "BA2", title: "Fundamentals of Management Accounting" },
   { code: "BA3", title: "Fundamentals of Financial Accounting" },
   { code: "BA4", title: "Fundamentals of Ethics, Corporate Governance and Business Law" }
+];
+
+const mbaModules = [
+  "Strategy and Sustainability in the Global Economy", "Strategic Resourcing and Talent Management", "Financial Decision Making for Managers",
+  "Strategic Marketing in the Digital Economy", "International Operations Management", "Innovation, Entrepreneurship and Delivering Change", "Research Methods"
 ];
 
 const baModules = [
@@ -139,15 +144,44 @@ export default function Home() {
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Leadership</p><h3 className="mt-2 text-lg font-semibold">President, BCU Postgraduate Society</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University · Student leadership</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026 – present</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Lead the society for postgraduate students across Birmingham City University, recruiting its first committee and course presidents. Designed and built the society&apos;s website, bringing volunteer roles, events and a curated board of graduate jobs, internships and funding into one place.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Finance experience</p><h3 className="mt-2 text-lg font-semibold">Finance Intern</h3><p className="mt-1 text-sm text-slate-400">Southco Inc. · SAP environment</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Jan 2020 – Mar 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Gained experience supporting day-to-day finance operations in an SAP environment, with exposure to financial data handling, reporting support, transaction checks and period-end processes.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Current study</p><h3 className="mt-2 text-lg font-semibold">MSc Artificial Intelligence</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026 – expected 2027</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Developing knowledge across AI, programming, data visualisation and machine learning, with an interest in applying AI to business and financial services.</p></div>
-            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Postgraduate education</p><h3 className="mt-2 text-lg font-semibold">Master of Business Administration (MBA)</h3><p className="mt-1 text-sm text-slate-400">University of Worcester</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Awarded 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Relevant study included financial decision-making, global strategy, entrepreneurship and innovation, leadership and change management, operations and value-chain management, research methods and a research project on how streetwear brands position themselves as luxury.</p></div>
+            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Postgraduate education</p><h3 className="mt-2 text-lg font-semibold">Master of Business Administration (MBA)</h3><p className="mt-1 text-sm text-slate-400">University of Worcester</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Awarded 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">A strategic, international view of business, completed with a dissertation on how streetwear brands position themselves as luxury. Modules included:</p><ul className="mt-3 flex flex-wrap gap-2">{mbaModules.map((m) => <li key={m} className="rounded-md border border-white/[.08] bg-white/[.03] px-2 py-1 text-[11px] text-slate-300">{m}</li>)}</ul></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Undergraduate education</p><h3 className="mt-2 text-lg font-semibold">BA (Hons) Business Management</h3><p className="mt-1 text-sm text-slate-400">Manchester Metropolitan University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Graduated 2018</span></div><p className="mt-4 text-sm leading-7 text-slate-400">A broad grounding in how organisations run, from finance and marketing to people, operations and enterprise. Modules included:</p><ul className="mt-3 flex flex-wrap gap-2">{baModules.map((m) => <li key={m} className="rounded-md border border-white/[.08] bg-white/[.03] px-2 py-1 text-[11px] text-slate-300">{m}</li>)}</ul></div>
-            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Professional qualification</p><h3 className="mt-2 text-lg font-semibold">CIMA Certificate in Business Accounting</h3><p className="mt-1 text-sm text-slate-400">Chartered Institute of Management Accountants</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Attained Sep 2022</span></div><p className="mt-4 text-sm leading-7 text-slate-400">CIMA’s foundation qualification in management accounting, covering four subjects:</p><ul className="mt-3 space-y-2">{cimaSubjects.map(({code,title}) => <li key={code} className="flex gap-3 text-sm leading-6 text-slate-300"><span className="w-9 shrink-0 font-medium text-indigo-300">{code}</span>{title}</li>)}</ul></div>
-            <div className="panel flex items-center gap-5 p-5 sm:p-6"><Image src="/graduate-plus-bronze.png" alt="BCU Graduate+ Bronze Award badge" width={72} height={70} className="h-[70px] w-[72px] shrink-0 object-contain" /><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Award</p><h3 className="mt-2 text-lg font-semibold">Graduate+ Bronze Award</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University</p><p className="mt-2 text-sm leading-6 text-slate-400">Recognition for employability and personal development activities completed alongside study.</p></div></div>
+            <div className="panel p-5 sm:p-6 md:col-span-2"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Professional qualification</p><h3 className="mt-2 text-lg font-semibold">CIMA Certificate in Business Accounting</h3><p className="mt-1 text-sm text-slate-400">Chartered Institute of Management Accountants</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Attained Sep 2022</span></div><p className="mt-4 text-sm leading-7 text-slate-400">CIMA’s foundation qualification in management accounting, covering four subjects:</p><ul className="mt-3 grid gap-x-8 gap-y-2 md:grid-cols-2">{cimaSubjects.map(({code,title}) => <li key={code} className="flex gap-3 text-sm leading-6 text-slate-300"><span className="w-9 shrink-0 font-medium text-indigo-300">{code}</span>{title}</li>)}</ul></div>
           </div>
         </div>
       </section>
 
-      <section id="skills" className="section">
+      <section id="achievements" className="section">
+        <div className="container">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="section-label">Recognition</p>
+            <h2 className="section-title">Awards <span className="gradient-text">& achievements.</span></h2>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            <article className="panel flex flex-col p-6">
+              <div className="flex items-start justify-between gap-3"><Image src="/graduate-plus-bronze.png" alt="BCU Graduate+ Bronze Award badge" width={72} height={70} className="h-[64px] w-[66px] object-contain" /></div>
+              <h3 className="mt-5 text-lg font-semibold">Graduate+ Bronze Award</h3>
+              <p className="mt-1 text-sm text-slate-400">Birmingham City University</p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">Recognition for employability and personal development activities completed alongside study.</p>
+            </article>
+            <article className="panel flex flex-col p-6">
+              <div className="flex items-start justify-between gap-3"><div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-amber-300/25 bg-amber-300/[.08] text-amber-200"><Trophy size={28} /></div><span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026</span></div>
+              <h3 className="mt-5 text-lg font-semibold">Third place, FutureBite Hackathon</h3>
+              <p className="mt-1 text-sm text-slate-400">Mondelēz and the Food and Drink Federation</p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">Placed third with Team 9 for a Career Navigator concept that makes food engineering careers easier to discover.</p>
+              <Link href="/projects/futurebite-hackathon" className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm text-indigo-300 hover:text-white">See the project <ArrowUpRight size={14} /></Link>
+            </article>
+            <article className="panel flex flex-col p-6">
+              <div className="flex items-start justify-between gap-3"><div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-300/25 bg-emerald-300/[.08] text-emerald-200"><Leaf size={28} /></div><span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Apr 2020</span></div>
+              <h3 className="mt-5 text-lg font-semibold">Responsible Futures Student Auditor</h3>
+              <p className="mt-1 text-sm text-slate-400">NUS and SOS-UK · University of Worcester</p>
+              <p className="mt-3 text-sm leading-6 text-slate-400">Trained as an auditor for the national sustainability accreditation in education. In a three-day joint audit with Coventry University, I led the documentary evidence review, interviewed staff and presented findings and recommendations to university and students’ union leaders. Certificate and letter of recommendation from SOS-UK.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="section border-y border-white/[.06] bg-[#090c14]">
         <div className="container grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
           <div><p className="section-label">Toolkit</p><h2 className="section-title">Tools I use<br/>and <span className="gradient-text">am learning.</span></h2><p className="section-copy">A practical snapshot of technologies, methods and business domains I work with or am developing through study and projects.</p></div>
           <div className="grid gap-3 sm:grid-cols-2">
