@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
+import { IntroOverlay } from "@/components/intro-overlay";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/lib/projects";
 
@@ -17,6 +18,19 @@ const disciplines = [
   { icon: WalletCards, title: "Finance" }
 ];
 
+const cimaSubjects = [
+  { code: "BA1", title: "Fundamentals of Business Economics" },
+  { code: "BA2", title: "Fundamentals of Management Accounting" },
+  { code: "BA3", title: "Fundamentals of Financial Accounting" },
+  { code: "BA4", title: "Fundamentals of Ethics, Corporate Governance and Business Law" }
+];
+
+const baModules = [
+  "Business World", "Finance for Business", "Marketing Principles and Planning", "People Management in Organisations",
+  "Enterprise Creation and Planning", "Entrepreneurial Leadership", "Logistics and Supply Chain Systems",
+  "Responsible and Ethical Organisations", "Contemporary Issues in Organisations", "Human Resource Management & Development"
+];
+
 const principles = [
   { title: "Build", text: "Software & prototypes", description: "Turn real needs into useful digital experiences." },
   { title: "Analyse", text: "Data & models", description: "Find patterns, test ideas and communicate insights." },
@@ -26,6 +40,7 @@ const principles = [
 export default function Home() {
   return (
     <>
+      <IntroOverlay />
       <section className="relative isolate overflow-hidden pb-20 pt-16 sm:pt-24 lg:pb-28 lg:pt-28">
         <div className="glow right-[-8%] top-10 h-80 w-80 bg-blue-600" />
         <div className="glow right-[20%] top-36 h-56 w-56 bg-violet-600 opacity-15" />
@@ -77,8 +92,8 @@ export default function Home() {
         <div className="container grid gap-12 lg:grid-cols-[.75fr_1.25fr]">
           <div><p className="section-label">About me</p><h2 className="section-title">Business context.<br/><span className="gradient-text">Technical curiosity.</span></h2></div>
           <div>
-            <p className="section-copy">I work as a Business Solutions Technician while studying for an MSc in Artificial Intelligence at Birmingham City University. My background also includes business management and finance, with interests spanning applied AI, software development, machine learning, data visualisation and FinTech.</p>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-500">I enjoy translating business needs into practical digital solutions: understanding the workflow, choosing suitable technology, and building experiences that are useful, clear and easier to work with.</p>
+            <p className="section-copy">I’m a Business Solutions Technician and an MSc Artificial Intelligence student at Birmingham City University, where I’m also President of the Postgraduate Society. My background is in business management and finance, and my focus now is applied AI, software development, machine learning and FinTech.</p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400">I like turning real business needs into software people actually use: understanding the workflow, choosing the right technology and seeing it through to release, from an iPad app now on the App Store to the society’s website.</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {principles.map(({title,text,description}) => <div key={title} className="panel principle-card p-6"><p className="text-2xl font-semibold tracking-tight text-white">{title}</p><p className="mt-2 text-sm font-medium text-indigo-200">{text}</p><p className="mt-3 text-sm leading-6 text-slate-400">{description}</p></div>)}
             </div>
@@ -86,11 +101,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="focus" className="section border-y border-white/[.06] bg-[#090c14]">
+      <section id="projects" className="section border-y border-white/[.06] bg-[#090c14]">
+        <div className="container">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div><p className="section-label">Selected work</p><h2 className="section-title">Projects with a <span className="gradient-text">purpose.</span></h2><p className="section-copy">A selection of software, machine learning, product and collaborative project work.</p></div>
+            <Link href="/projects" className="btn-secondary w-fit">All projects <ArrowUpRight size={15}/></Link>
+          </div>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{projects.map(project=><ProjectCard key={project.slug} project={project}/>)}</div>
+        </div>
+      </section>
+
+      <section id="focus" className="section">
         <div className="container">
           <p className="section-label">Areas of focus</p>
           <h2 className="section-title max-w-2xl">Three directions. <span className="gradient-text">One evolving skill set.</span></h2>
-          <p className="section-copy mb-10">I’m keeping my options open while building the technical depth and practical evidence to decide where I can make the strongest contribution.</p>
+          <p className="section-copy mb-10">Where my work, study and projects meet: building useful software, learning from data, and applying both to finance.</p>
           <div className="grid gap-4 lg:grid-cols-3">
             {focusAreas.map(({icon: Icon, title, text, tags}) => <article key={title} className="panel card-hover focus-card flex flex-col items-center p-7 text-center sm:p-8">
               <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-indigo-300/20 bg-indigo-400/[.08] text-indigo-200"><Icon size={29}/></div>
@@ -99,16 +124,6 @@ export default function Home() {
               <div className="mt-auto flex flex-wrap justify-center gap-2 pt-5">{tags.map(tag=><span key={tag} className="rounded-md bg-white/[.045] px-3 py-2 text-xs text-slate-300">{tag}</span>)}</div>
             </article>)}
           </div>
-        </div>
-      </section>
-
-      <section id="projects" className="section">
-        <div className="container">
-          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-            <div><p className="section-label">Selected work</p><h2 className="section-title">Projects with a <span className="gradient-text">purpose.</span></h2><p className="section-copy">A selection of software, machine learning, product and collaborative project work.</p></div>
-            <Link href="/projects" className="btn-secondary w-fit">All projects <ArrowUpRight size={15}/></Link>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">{projects.map(project=><ProjectCard key={project.slug} project={project}/>)}</div>
         </div>
       </section>
 
@@ -125,8 +140,8 @@ export default function Home() {
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Finance experience</p><h3 className="mt-2 text-lg font-semibold">Finance Intern</h3><p className="mt-1 text-sm text-slate-400">Southco Inc. · SAP environment</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Jan 2020 – Mar 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Gained experience supporting day-to-day finance operations in an SAP environment, with exposure to financial data handling, reporting support, transaction checks and period-end processes.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Current study</p><h3 className="mt-2 text-lg font-semibold">MSc Artificial Intelligence</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026 – expected 2027</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Developing knowledge across AI, programming, data visualisation and machine learning, with an interest in applying AI to business and financial services.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Postgraduate education</p><h3 className="mt-2 text-lg font-semibold">Master of Business Administration (MBA)</h3><p className="mt-1 text-sm text-slate-400">University of Worcester</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Awarded 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Relevant study included financial decision-making, global strategy, entrepreneurship and innovation, leadership and change management, operations and value-chain management, research methods and a research project on how streetwear brands position themselves as luxury.</p></div>
-            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Undergraduate education</p><h3 className="mt-2 text-lg font-semibold">BA (Hons) Business Management</h3><p className="mt-1 text-sm text-slate-400">Manchester Metropolitan University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Graduated 2018</span></div></div>
-            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Professional qualification</p><h3 className="mt-2 text-lg font-semibold">CIMA Certificate in Business Accounting</h3><p className="mt-1 text-sm text-slate-400">Finance and management accounting</p></div></div></div>
+            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Undergraduate education</p><h3 className="mt-2 text-lg font-semibold">BA (Hons) Business Management</h3><p className="mt-1 text-sm text-slate-400">Manchester Metropolitan University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Graduated 2018</span></div><p className="mt-4 text-sm leading-7 text-slate-400">A broad grounding in how organisations run, from finance and marketing to people, operations and enterprise. Modules included:</p><ul className="mt-3 flex flex-wrap gap-2">{baModules.map((m) => <li key={m} className="rounded-md border border-white/[.08] bg-white/[.03] px-2 py-1 text-[11px] text-slate-300">{m}</li>)}</ul></div>
+            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Professional qualification</p><h3 className="mt-2 text-lg font-semibold">CIMA Certificate in Business Accounting</h3><p className="mt-1 text-sm text-slate-400">Chartered Institute of Management Accountants</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Attained Sep 2022</span></div><p className="mt-4 text-sm leading-7 text-slate-400">CIMA’s foundation qualification in management accounting, covering four subjects:</p><ul className="mt-3 space-y-2">{cimaSubjects.map(({code,title}) => <li key={code} className="flex gap-3 text-sm leading-6 text-slate-300"><span className="w-9 shrink-0 font-medium text-indigo-300">{code}</span>{title}</li>)}</ul></div>
             <div className="panel flex items-center gap-5 p-5 sm:p-6"><Image src="/graduate-plus-bronze.png" alt="BCU Graduate+ Bronze Award badge" width={72} height={70} className="h-[70px] w-[72px] shrink-0 object-contain" /><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Award</p><h3 className="mt-2 text-lg font-semibold">Graduate+ Bronze Award</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University</p><p className="mt-2 text-sm leading-6 text-slate-400">Recognition for employability and personal development activities completed alongside study.</p></div></div>
           </div>
         </div>

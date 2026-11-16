@@ -1,29 +1,25 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { INTRO_SESSION_KEY } from "@/lib/intro";
 
-const SESSION_KEY = "smr-portfolio-intro-seen";
+function markSeen() {
+  document.documentElement.classList.add("intro-seen");
+  try { sessionStorage.setItem(INTRO_SESSION_KEY, "true"); } catch {}
+}
 
 export function IntroOverlay() {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    try {
-      if (sessionStorage.getItem(SESSION_KEY) === "true") {
-        setVisible(false);
-        return;
-      }
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        sessionStorage.setItem(SESSION_KEY, "true");
-        setVisible(false);
-        return;
-      }
-      sessionStorage.setItem(SESSION_KEY, "true");
-      const timeout = window.setTimeout(() => setVisible(false), 2850);
-      return () => window.clearTimeout(timeout);
-    } catch {
+    if (document.documentElement.classList.contains("intro-seen")) {
+      markSeen();
+      setVisible(false);
       return;
     }
+    try { sessionStorage.setItem(INTRO_SESSION_KEY, "true"); } catch {}
+    const timeout = window.setTimeout(() => { markSeen(); setVisible(false); }, 2850);
+    return () => window.clearTimeout(timeout);
   }, []);
 
   if (!visible) return null;
@@ -39,7 +35,7 @@ export function IntroOverlay() {
         <div className="intro-light-sweep" aria-hidden="true" />
         <p className="intro-tagline">Building intelligent solutions for real-world problems.</p>
       </div>
-      <button type="button" className="intro-skip" onClick={() => setVisible(false)}>Skip intro <span aria-hidden="true">↗</span></button>
+      <button type="button" className="intro-skip" onClick={() => { markSeen(); setVisible(false); }}>Skip intro <span aria-hidden="true">↗</span></button>
     </div>
   );
 }
