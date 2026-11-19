@@ -20,6 +20,7 @@ export type Project = {
   attribution?: string;
   gallery?: { title: string; variant: "tablet" | "browser"; images: GalleryImage[] };
   photo?: GalleryImage;
+  certificate?: GalleryImage;
   sections?: { title: string; body: string }[];
   results?: { title: string; columns: string[]; rows: { cells: string[]; highlight?: boolean }[]; note?: string };
   metrics?: { label: string; value: string }[];
@@ -160,6 +161,7 @@ export const projects: Project[] = [
     highlights: ["Career Navigator concept for food engineering and manufacturing", "Career discovery quiz and jargon-free career pathway content", "Explored taster sessions, testimonials, mentoring and day-in-the-life content", "Team placed third in the hackathon"],
     confirmation: ["Check with teammates before publishing any shared or restricted materials"],
     photo: { src: "/futurebite-team9-third-place.jpg", alt: "Team 9 with the hackathon judges after being awarded third place", caption: "Team 9 receiving third place at the FutureBite hackathon awards", width: 626, height: 412 },
+    certificate: { src: "/futurebite-certificate.jpg", alt: "Certificate of Achievement from Birmingham City University and Mondelēz International presented to Sunil Mangtani Retrita for securing third place in the FutureBite Hackathon", caption: "Certificate of Achievement for third place", width: 1754, height: 1241 },
     gallery: {
       title: "Website design",
       variant: "browser",

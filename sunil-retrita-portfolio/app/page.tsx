@@ -3,7 +3,10 @@ import Link from "next/link";
 import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, Leaf, Trophy, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
 import { IntroOverlay } from "@/components/intro-overlay";
 import { ProjectCard } from "@/components/project-card";
+import { ZoomableImage } from "@/components/zoomable-image";
 import { projects } from "@/lib/projects";
+
+const futureBiteCertificate = projects.find((p) => p.slug === "futurebite-hackathon")?.certificate;
 
 const focusAreas = [
   { icon: BrainCircuit, title: "Applied AI & Solutions", text: "Designing practical software and exploring how AI can improve workflows, products and business decisions.", tags: ["Applied AI", "Automation", "Generative AI"] },
@@ -169,7 +172,7 @@ export default function Home() {
               <h3 className="mt-5 text-lg font-semibold">Third place, FutureBite Hackathon</h3>
               <p className="mt-1 text-sm text-slate-400">Mondelēz and the Food and Drink Federation</p>
               <p className="mt-3 text-sm leading-6 text-slate-400">Placed third with Team 9 for a Career Navigator concept that makes food engineering careers easier to discover.</p>
-              <Link href="/projects/futurebite-hackathon" className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm text-indigo-300 hover:text-white">See the project <ArrowUpRight size={14} /></Link>
+              <div className="mt-auto space-y-3 pt-5">{futureBiteCertificate && <ZoomableImage image={futureBiteCertificate} sizes="72px" label="View certificate" />}<Link href="/projects/futurebite-hackathon" className="inline-flex items-center gap-1.5 text-sm text-indigo-300 hover:text-white">See the project <ArrowUpRight size={14} /></Link></div>
             </article>
             <article className="panel flex flex-col p-6">
               <div className="flex items-start justify-between gap-3"><div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-emerald-300/25 bg-emerald-300/[.08] text-emerald-200"><Leaf size={28} /></div><span className="rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Apr 2020</span></div>
