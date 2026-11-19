@@ -1,10 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, Leaf, Trophy, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
+import { ArrowDown, ArrowRight, ArrowUpRight, BrainCircuit, BriefcaseBusiness, Leaf, Quote, Trophy, ChartNoAxesCombined, Database, Linkedin, Mail, MonitorSmartphone, Sparkles, WalletCards, Workflow } from "lucide-react";
 import { IntroOverlay } from "@/components/intro-overlay";
 import { ProjectCard } from "@/components/project-card";
 import { ZoomableImage } from "@/components/zoomable-image";
 import { projects } from "@/lib/projects";
+
+const responsibleFuturesCertificate = { src: "/responsible-futures-certificate.jpg", alt: "NUS Responsible Futures certificate confirming that Sunil Retrita attended auditor training from 28 to 30 April 2020", caption: "Responsible Futures auditor training certificate, April 2020", width: 1200, height: 1698 };
+
+const testimonials = [
+  { quote: "A very capable young man. Always asking questions and willing to learn.", role: "Line manager", org: "Southco", context: "Finance internship" },
+  { quote: "He was able to make a worthy and significant contribution during his time there… I recommend him to you unreservedly.", role: "Work Placement Tutor", org: "University of Worcester", context: "Finance internship" },
+  { quote: "The audit process… would not have been possible without the dedication and professionalism demonstrated by Sunil.", role: "Director of Education", org: "SOS-UK", context: "Responsible Futures audit" }
+];
 
 const futureBiteCertificate = projects.find((p) => p.slug === "futurebite-hackathon")?.certificate;
 
@@ -145,7 +153,7 @@ export default function Home() {
           <div className="grid gap-4 md:grid-cols-2">
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Current role</p><h3 className="mt-2 text-lg font-semibold">Business Solutions Technician</h3><p className="mt-1 text-sm text-slate-400">Business systems · Process improvement · Software development</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Jan 2025 – present</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Support business operations through system and process improvements, with experience across cloud ERP workflows and internal tools. Rebuilt an existing iOS proof-of-delivery application using SwiftUI, modernising the user experience and adding functionality to support QR-based shipment identification, recipient acknowledgement and delivery-record submission.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Leadership</p><h3 className="mt-2 text-lg font-semibold">President, BCU Postgraduate Society</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University · Student leadership</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026 – present</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Lead the society for postgraduate students across Birmingham City University, recruiting its first committee and course presidents. Designed and built the society&apos;s website, bringing volunteer roles, events and a curated board of graduate jobs, internships and funding into one place.</p></div>
-            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Finance experience</p><h3 className="mt-2 text-lg font-semibold">Finance Intern</h3><p className="mt-1 text-sm text-slate-400">Southco Inc. · SAP environment</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Jan 2020 – Mar 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Gained experience supporting day-to-day finance operations in an SAP environment, with exposure to financial data handling, reporting support, transaction checks and period-end processes.</p></div>
+            <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Finance experience</p><h3 className="mt-2 text-lg font-semibold">Finance Intern</h3><p className="mt-1 text-sm text-slate-400">Southco Inc. · SAP environment</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Jan 2020 – Mar 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Supported Southco’s Finance department across Accounts Payable, Credit Control and General Ledger, working with multiple international currencies and exchange rates in SAP. Completed as part of my MBA and closed with a presentation of my work to the finance team and senior managers; the placement ended slightly early due to Covid-19.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Current study</p><h3 className="mt-2 text-lg font-semibold">MSc Artificial Intelligence</h3><p className="mt-1 text-sm text-slate-400">Birmingham City University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">2026 – expected 2027</span></div><p className="mt-4 text-sm leading-7 text-slate-400">Developing knowledge across AI, programming, data visualisation and machine learning, with an interest in applying AI to business and financial services.</p></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Postgraduate education</p><h3 className="mt-2 text-lg font-semibold">Master of Business Administration (MBA)</h3><p className="mt-1 text-sm text-slate-400">University of Worcester</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Awarded 2020</span></div><p className="mt-4 text-sm leading-7 text-slate-400">A strategic, international view of business, completed with a dissertation on how streetwear brands position themselves as luxury. Modules included:</p><ul className="mt-3 flex flex-wrap gap-2">{mbaModules.map((m) => <li key={m} className="rounded-md border border-white/[.08] bg-white/[.03] px-2 py-1 text-[11px] text-slate-300">{m}</li>)}</ul></div>
             <div className="panel p-5 sm:p-6"><div className="flex flex-col justify-between gap-2 sm:flex-row"><div><p className="text-xs uppercase tracking-[.12em] text-indigo-300">Undergraduate education</p><h3 className="mt-2 text-lg font-semibold">BA (Hons) Business Management</h3><p className="mt-1 text-sm text-slate-400">Manchester Metropolitan University</p></div><span className="h-fit rounded-full border border-white/10 px-3 py-1 text-xs text-slate-400">Graduated 2018</span></div><p className="mt-4 text-sm leading-7 text-slate-400">A broad grounding in how organisations run, from finance and marketing to people, operations and enterprise. Modules included:</p><ul className="mt-3 flex flex-wrap gap-2">{baModules.map((m) => <li key={m} className="rounded-md border border-white/[.08] bg-white/[.03] px-2 py-1 text-[11px] text-slate-300">{m}</li>)}</ul></div>
@@ -179,12 +187,29 @@ export default function Home() {
               <h3 className="mt-5 text-lg font-semibold">Responsible Futures Student Auditor</h3>
               <p className="mt-1 text-sm text-slate-400">NUS and SOS-UK · University of Worcester</p>
               <p className="mt-3 text-sm leading-6 text-slate-400">Trained as an auditor for the national sustainability accreditation in education. In a three-day joint audit with Coventry University, I led the documentary evidence review, interviewed staff and presented findings and recommendations to university and students’ union leaders. Certificate and letter of recommendation from SOS-UK.</p>
+              <div className="mt-auto pt-5"><ZoomableImage image={responsibleFuturesCertificate} sizes="72px" label="View certificate" /></div>
             </article>
           </div>
         </div>
       </section>
 
-      <section id="skills" className="section border-y border-white/[.06] bg-[#090c14]">
+      <section id="testimonials" className="section border-y border-white/[.06] bg-[#090c14]">
+        <div className="container">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <p className="section-label">Testimonials</p>
+            <h2 className="section-title">Kind <span className="gradient-text">words.</span></h2>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {testimonials.map(({ quote, role, org, context }) => <figure key={role} className="panel flex flex-col p-6">
+              <Quote size={22} className="text-indigo-300" aria-hidden="true" />
+              <blockquote className="mt-4 text-base leading-7 text-slate-200">“{quote}”</blockquote>
+              <figcaption className="mt-auto pt-4"><div className="border-t border-white/[.07] pt-4 text-sm"><span className="font-medium text-white">{role}</span><span className="text-slate-400">, {org}</span><span className="mt-1 block text-xs text-slate-500">{context}</span></div></figcaption>
+            </figure>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="section">
         <div className="container grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
           <div><p className="section-label">Toolkit</p><h2 className="section-title">Tools I use<br/>and <span className="gradient-text">am learning.</span></h2><p className="section-copy">A practical snapshot of technologies, methods and business domains I work with or am developing through study and projects.</p></div>
           <div className="grid gap-3 sm:grid-cols-2">
