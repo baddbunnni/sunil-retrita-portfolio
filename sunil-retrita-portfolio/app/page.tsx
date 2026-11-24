@@ -18,8 +18,8 @@ const futureBiteCertificate = projects.find((p) => p.slug === "futurebite-hackat
 
 const focusAreas = [
   { icon: BrainCircuit, title: "Applied AI & Solutions", text: "Designing practical software and exploring how AI can improve workflows, products and business decisions.", tags: ["Applied AI", "Automation", "Generative AI"] },
-  { icon: ChartNoAxesCombined, title: "Machine Learning & Data", text: "Building capability in Python, statistics, data analysis, data visualisation and machine learning through MSc study and hands-on projects.", tags: ["Python", "Data visualisation", "Machine learning"] },
-  { icon: WalletCards, title: "FinTech", text: "Exploring how data and intelligent systems can support financial services, risk analysis and better business decisions.", tags: ["Financial analytics", "Risk", "Decision support"] }
+  { icon: ChartNoAxesCombined, title: "Machine Learning & Data", text: "Python, machine learning, time-series evaluation and data visualisation, put into practice in an exchange-rate forecasting study and an interactive customer churn dashboard.", tags: ["Machine learning", "Time series", "Data visualisation"] },
+  { icon: WalletCards, title: "FinTech", text: "Exploring how data and models can support financial services and decisions, starting with whether interest-rate data can forecast the GBP/USD exchange rate.", tags: ["Financial analytics", "Forecasting", "Decision support"] }
 ];
 
 const disciplines = [
@@ -45,6 +45,20 @@ const baModules = [
   "Business World", "Finance for Business", "Marketing Principles and Planning", "People Management in Organisations",
   "Enterprise Creation and Planning", "Entrepreneurial Leadership", "Logistics and Supply Chain Systems",
   "Responsible and Ethical Organisations", "Contemporary Issues in Organisations", "Human Resource Management & Development"
+];
+
+const pod = { label: "Proof of Delivery", href: "/projects/proof-of-delivery-app" };
+const society = { label: "Society website", href: "/projects/bcu-postgraduate-society-website" };
+const fx = { label: "GBP/USD forecasting", href: "/projects/gbp-usd-forecasting" };
+const churn = { label: "Churn dashboard", href: "/projects/subscription-churn-dashboard" };
+
+const toolkit = [
+  { title: "Software development", items: "SwiftUI · iOS · TypeScript · Next.js · Tailwind CSS", usedIn: [pod, society] },
+  { title: "Machine learning", items: "Python · scikit-learn · Regression and tree-based models · K-Means clustering · Model evaluation against baselines", usedIn: [fx] },
+  { title: "Time-series analysis", items: "Chronological train/test splits · Naive baselines · Direction accuracy · Distribution shift", usedIn: [fx] },
+  { title: "Data analysis & visualisation", items: "pandas · Streamlit · Altair · Matplotlib · Interactive, linked dashboards", usedIn: [churn, fx] },
+  { title: "Data, backend & deployment", items: "SQL · Supabase · API integrations · Git and GitHub · Vercel · Streamlit Community Cloud · Azure learning", usedIn: [society, pod, churn] },
+  { title: "Business & finance", items: "SAP exposure · Acumatica · Process improvement · Financial decision-making · CIMA Certificate", usedIn: [] }
 ];
 
 const principles = [
@@ -109,7 +123,7 @@ export default function Home() {
           <div><p className="section-label">About me</p><h2 className="section-title">Business context.<br/><span className="gradient-text">Technical curiosity.</span></h2></div>
           <div>
             <p className="section-copy">I’m a Business Solutions Technician and an MSc Artificial Intelligence student at Birmingham City University, where I’m also President of the Postgraduate Society. My background is in business management and finance, and my focus now is applied AI, software development, machine learning and FinTech.</p>
-            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400">I like turning real business needs into software people actually use: understanding the workflow, choosing the right technology and seeing it through to release, from an iPad app now on the App Store to the society’s website.</p>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400">I like turning real business needs into software people actually use: understanding the workflow, choosing the right technology and seeing it through to release, from an iPad app now on the App Store to the society’s website. On the data side, I enjoy testing ideas honestly, whether that means checking a forecasting model against a simple baseline or building a dashboard that shows which customers are most likely to cancel.</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-3">
               {principles.map(({title,text,description}) => <div key={title} className="panel principle-card p-6"><p className="text-2xl font-semibold tracking-tight text-white">{title}</p><p className="mt-2 text-sm font-medium text-indigo-200">{text}</p><p className="mt-3 text-sm leading-6 text-slate-400">{description}</p></div>)}
             </div>
@@ -213,7 +227,7 @@ export default function Home() {
         <div className="container grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
           <div><p className="section-label">Toolkit</p><h2 className="section-title">Tools I use<br/>and <span className="gradient-text">am learning.</span></h2><p className="section-copy">A practical snapshot of technologies, methods and business domains I work with or am developing through study and projects.</p></div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {[["Software development", "SwiftUI · iOS · TypeScript · Next.js"],["AI & data", "Python · Machine learning · Data analysis · Data visualisation"],["Data & backend", "SQL · Supabase · Existing API integrations"],["Developer workflow", "Git · GitHub · Version control"],["Cloud & deployment", "Azure learning · Vercel · Cloud ERP workflows"],["Business & finance", "SAP exposure · Acumatica · Process improvement · Financial decision-making"]].map(([title,items])=><div key={title} className="panel p-5"><h3 className="font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-400">{items}</p></div>)}
+            {toolkit.map(({title, items, usedIn})=><div key={title} className="panel flex flex-col p-5"><h3 className="font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-400">{items}</p>{usedIn.length > 0 && <p className="mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-3 text-xs text-slate-500">Used in:{usedIn.map(({label, href}) => <Link key={href} href={href} className="text-indigo-300 transition hover:text-white">{label}</Link>)}</p>}</div>)}
           </div>
         </div>
       </section>
