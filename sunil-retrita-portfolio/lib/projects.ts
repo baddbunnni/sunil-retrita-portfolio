@@ -185,7 +185,7 @@ export const projects: Project[] = [
     ],
     confirmation: [],
     externalUrl: "https://churn-dashboard-v2-4kdefa3nnqfcxtr8daw3id.streamlit.app/",
-    externalLabel: "Open the live dashboard"
+    externalLabel: "Open the live dashboard (may take 30 seconds to start)"
   },
   {
     slug: "toke-taxi-app",
