@@ -131,6 +131,63 @@ export const projects: Project[] = [
     confirmation: []
   },
   {
+    slug: "subscription-churn-dashboard",
+    title: "Subscription Churn Dashboard — Who Is More Likely to Cancel?",
+    category: "Data visualisation · Customer analytics",
+    summary: "An interactive Streamlit dashboard exploring 243,787 streaming subscribers to find which customers are most likely to cancel, built as a five-person MSc group project.",
+    detail: "The dashboard answers one question, “who is more likely to cancel their subscription?”, across 243,787 customers of a streaming service. It opens with an overview that ranks every factor by how strongly it separates customers who stay from those who leave, then lets the viewer drill into five topics: content preferences, plans and pricing, engagement, account age and customer experience. A risk-profile page combines factors from every section to find the highest- and lowest-risk customer groups. I was responsible for the account-age section, which turned out to be the strongest single factor in the data.",
+    status: "MSc group project · Live dashboard",
+    stack: ["Python", "Streamlit", "pandas", "Altair", "Data visualisation", "Git & GitHub"],
+    art: "bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900",
+    image: "/churn-card.jpg",
+    imageAlt: "Account age section of the churn dashboard: a bar chart of cancellation rate by account age and a heatmap of account age by subscription plan",
+    attribution: "Group project for CMP7227 Data Visualisation at Birmingham City University. Each team member owned one topic section; I built the account-age section.",
+    highlights: [
+      "Account age separates customers more than any other factor: new customers (1–12 months) cancel at 31.2% against 9.0% for customers of 91+ months, a 22.1 percentage-point gap",
+      "Cancellation falls with account age on every subscription plan, and Basic has the highest rate in all six age bands",
+      "Combining account age with viewing habits shows new, light viewers cancel at 37.0% compared with 6.2% for long-standing heavy viewers",
+      "Linked, clickable charts: selecting a bar highlights the matching row of a heatmap, and an engagement toggle filters every chart in the section",
+      "One shared calculation and colour rule across all sections: orange above the all-customer rate, blue below, on a common 0–40% scale so sections can be compared fairly",
+      "Data checks run every time the app loads, and it refuses to start if IDs are duplicated, values are missing or the churn field is invalid"
+    ],
+    gallery: {
+      title: "Screenshots",
+      variant: "browser",
+      images: [
+        { src: "/churn-overview.jpg", alt: "Overview page with customer totals, an 18.1% cancellation rate and a chart ranking eleven factors by how far apart their groups’ cancellation rates are", caption: "Overview: every factor ranked by how strongly it separates customers", width: 1500, height: 1420 },
+        { src: "/churn-account-age.jpg", alt: "Account age section with an engagement toggle, a bar chart of cancellation rate by account age and a heatmap of account age by subscription plan", caption: "My section: cancellation by account age, by plan and by engagement", width: 1500, height: 1380 },
+        { src: "/churn-risk-profiles.jpg", alt: "Risk profiles page where the viewer combines factors from every section to build a customer profile and compare it with all customers", caption: "Risk profiles: combine factors to find the highest-risk customers", width: 1500, height: 1190 }
+      ]
+    },
+    results: {
+      title: "Cancellation rate by account age",
+      columns: ["Account age (months)", "Customers", "Cancellation rate"],
+      rows: [
+        { cells: ["1–12", "24.1k", "31.2%"], highlight: true },
+        { cells: ["13–24", "24.7k", "28.3%"] },
+        { cells: ["25–36", "24.8k", "24.7%"] },
+        { cells: ["37–60", "49.1k", "19.7%"] },
+        { cells: ["61–90", "61.6k", "13.8%"] },
+        { cells: ["91+", "59.6k", "9.0%"] }
+      ],
+      note: "The all-customer cancellation rate is 18.1%. Rates are compared rather than counts, because larger groups always contain more cancellations."
+    },
+    sections: [
+      { title: "What I put into practice", body: "Cleaning and validating a large dataset with pandas, grouping continuous values into meaningful bands, and calculating comparable rates against a single benchmark. On the design side: choosing the right chart for each question, honest scales with a zero baseline, colour-blind-safe colours, showing group sizes beside every percentage so small groups are not over-read, and linked views that let a viewer move from the big picture into detail without leaving the page." },
+      { title: "Reading the results carefully", body: "The data is a single snapshot with no dates, so every result shows association, not cause. Long-standing customers are by definition the ones who have not yet left (survivorship), and a pattern in one chart can change once another factor is held constant (Simpson’s paradox), which is why the heatmaps and the risk-profile page compare factors together. The very even distributions also suggest a synthetic dataset, so the findings may not transfer directly to a real streaming service." },
+      { title: "Skills gained", body: "Building and deploying an interactive web dashboard in Python with Streamlit and Altair, working to shared standards in a team so five people’s sections read as one product, version control with Git and GitHub, and presenting findings in plain language for a non-technical audience." }
+    ],
+    metrics: [
+      { label: "Data", value: "243,787 customers" },
+      { label: "Overall cancellation rate", value: "18.1%" },
+      { label: "Largest gap", value: "22.1 pp, by account age" },
+      { label: "Team", value: "5 members, one section each" }
+    ],
+    confirmation: [],
+    externalUrl: "https://churn-dashboard-v2-4kdefa3nnqfcxtr8daw3id.streamlit.app/",
+    externalLabel: "Open the live dashboard"
+  },
+  {
     slug: "toke-taxi-app",
     title: "Toke — Taxi Booking Platform",
     category: "Product concept · Mobility",
