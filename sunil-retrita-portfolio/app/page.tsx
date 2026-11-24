@@ -47,18 +47,14 @@ const baModules = [
   "Responsible and Ethical Organisations", "Contemporary Issues in Organisations", "Human Resource Management & Development"
 ];
 
-const pod = { label: "Proof of Delivery", href: "/projects/proof-of-delivery-app" };
-const society = { label: "Society website", href: "/projects/bcu-postgraduate-society-website" };
-const fx = { label: "GBP/USD forecasting", href: "/projects/gbp-usd-forecasting" };
-const churn = { label: "Churn dashboard", href: "/projects/subscription-churn-dashboard" };
 
 const toolkit = [
-  { title: "Software development", items: "SwiftUI · iOS · TypeScript · Next.js · Tailwind CSS", usedIn: [pod, society] },
-  { title: "Machine learning", items: "Python · scikit-learn · Regression and tree-based models · K-Means clustering · Model evaluation against baselines", usedIn: [fx] },
-  { title: "Time-series analysis", items: "Chronological train/test splits · Naive baselines · Direction accuracy · Distribution shift", usedIn: [fx] },
-  { title: "Data analysis & visualisation", items: "pandas · Streamlit · Altair · Matplotlib · Interactive, linked dashboards", usedIn: [churn, fx] },
-  { title: "Data, backend & deployment", items: "SQL · Supabase · API integrations · Git and GitHub · Vercel · Streamlit Community Cloud · Azure learning", usedIn: [society, pod, churn] },
-  { title: "Business & finance", items: "SAP exposure · Acumatica · Process improvement · Financial decision-making · CIMA Certificate", usedIn: [] }
+  { title: "Software development", items: "SwiftUI · iOS · TypeScript · Next.js · Tailwind CSS" },
+  { title: "Machine learning", items: "Python · scikit-learn · Regression and tree-based models · K-Means clustering · Model evaluation against baselines" },
+  { title: "Time-series analysis", items: "Chronological train/test splits · Naive baselines · Direction accuracy · Distribution shift" },
+  { title: "Data analysis & visualisation", items: "pandas · Streamlit · Altair · Matplotlib · Interactive, linked dashboards" },
+  { title: "Data, backend & deployment", items: "SQL · Supabase · API integrations · Git and GitHub · Vercel · Streamlit Community Cloud · Azure learning" },
+  { title: "Business & finance", items: "SAP exposure · Acumatica · Process improvement · Financial decision-making · CIMA Certificate" }
 ];
 
 const principles = [
@@ -227,7 +223,7 @@ export default function Home() {
         <div className="container grid gap-10 lg:grid-cols-[.75fr_1.25fr]">
           <div><p className="section-label">Toolkit</p><h2 className="section-title">Tools I use<br/>and <span className="gradient-text">am learning.</span></h2><p className="section-copy">A practical snapshot of technologies, methods and business domains I work with or am developing through study and projects.</p></div>
           <div className="grid gap-3 sm:grid-cols-2">
-            {toolkit.map(({title, items, usedIn})=><div key={title} className="panel flex flex-col p-5"><h3 className="font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-400">{items}</p>{usedIn.length > 0 && <p className="mt-auto flex flex-wrap gap-x-3 gap-y-1 pt-3 text-xs text-slate-500">Used in:{usedIn.map(({label, href}) => <Link key={href} href={href} className="text-indigo-300 transition hover:text-white">{label}</Link>)}</p>}</div>)}
+            {toolkit.map(({title, items})=><div key={title} className="panel p-5"><h3 className="font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-slate-400">{items}</p></div>)}
           </div>
         </div>
       </section>
